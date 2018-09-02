@@ -1,0 +1,37 @@
+{% extends 'base_layout.html' %}
+{%block content%}
+
+<body>
+    <div class="container">
+        <p>First name: {{user.student_form1.First_name}}</p><br>
+        <p>middle name: {{user.student_form1.Middle_name}}</p><br>
+        <p>Last name: {{user.student_form1.Last_name}}</p><br>
+        <p>Address: {{user.student_form1.Address}}</p><br>
+        <p>phone_number: {{user.student_form1.phone_number}}</p><br>
+        <p>email: {{user.student_form1.email}}</p><br>
+        <p>Nationality: {{user.student_form1.Nationality}}</p><br>
+        <p>Gender: {{user.student_form1.Gender}}</p><br>
+        <p>Mother name: {{user.student_form2.Mother_name}}</p><br>
+        <p>Father name: {{user.student_form2.Father_name}}</p><br>
+        <p>tenth marks: {{user.student_form2.tenth_marks}}</p><br>
+        <p>Status_of_twefth_result : {{user.student_form2.Status_of_twefth_result}}</p><br>
+        <p>Twelfth_marks: {{user.student_form3.marks_in_twelfth}}</p><br>
+        <p>Subject1_marks: {{user.student_form3.Subject1_marks}}</p><br>
+        <p>Subject2_marks: {{user.student_form3.Subject2_marks}}</p><br>
+        <p>Subject3_marks: {{user.student_form3.Subject3_marks}}</p><br>
+        <p>Subject4_marks: {{user.student_form3.Subject4_marks}}</p><br>
+        <p>candidate_photo: <img src="{{user.student_form4.candidate_photo.url}}" width="120" height="120" > </p>
+        <p>thumb_photo: <img src="{{user.student_form4.thumb_impression.url}}" width="120" height="120" > </p>
+        <p>signature_photo: <img src="{{user.student_form4.candidate_signature.url}}" width="120" height="120"> </p>
+
+
+    </div>
+
+</body>
+   
+
+
+
+
+
+{% endblock %}

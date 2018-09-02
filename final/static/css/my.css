@@ -1,0 +1,55 @@
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(181, 253, 255);
+   color: white;
+   text-align: center;
+}
+
+.button12:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.wrapper {
+    text-align: center;
+}
+
+.button11 {
+    position: absolute;
+    top: 50%;
+}
+.button10 {
+    position: absolute;
+    top: 42%;
+}
+body{
+    background-color:rgb(253, 253, 174);
+}
+.watermark{
+  background:url("VIPS.jpg") ;
+  background-repeat: no-repeat;
+  opacity: 0.08; 
+    position: absolute;
+    right: 40;
+    top: 20%;
+
+  width: 100%;
+  height: 100%;
+    z-index: -1;
+}
+.clearfix{
+    clear: both;
+}
+.div1 {
+    background-color:rgb(198, 233, 250);
+    border-bottom: 3px solid red;
+    border-top: 3px solid red;
+    border-right: 3px solid red;
+    border-left: 3px solid red;
+
+}
+.div1 a:hover {
+    border-bottom: 3px solid red;
+}

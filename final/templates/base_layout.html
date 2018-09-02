@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="watermark"></div>
+    <div class="footer">
+        <p>ABHISHEK KATARIA@Django 2018(C) </p>
+        <p>
+            <a href="{% url 'student:Prob_form'%}">reportaproblem</a>
+            <a href="{% url 'student:Contact'%}">contact details</a>
+        </p>
+        
+    </div><br>
+    <nav class="navbar navbar-expand-lg navbar-light rounded div1">
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                        <form class="logout-link" action="{%url 'accounts:change_password'%}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-default button12" type="submit">  Change Password  </button>
+                        </form>
+                  </li>  
+
+              </ul>
+            </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="logout-link" action="{%url 'student:first_page'%}" method="get">
+                        {% csrf_token %}
+                        <button class="btn btn-default button12" type="submit"> Edit Informations</button>
+                    </form>
+                </li>  
+      
+            </ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="logout-link" action="{%url 'student:first_page'%}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-default button12" type="submit"> Fill Forms</button>
+                        </form>
+                    </li>  
+          
+                </ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="logout-link" action="{%url 'student:Alt_student_full_info'%}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-default button12" type="submit"> Review Information</button>
+                        </form>
+                    </li>  
+          
+                </ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="logout-link" action="{%url 'accounts:logout'%}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-default button12" type="submit">LOGOUT </button>
+                        </form>
+                    </li>  
+          
+                </ul>
+        </div>
+    </nav>
+        {%block content%}
+        {% endblock %}
+</body>
+</html>
