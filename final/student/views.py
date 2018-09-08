@@ -6,14 +6,22 @@ from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Student_form1,Student_form2,Student_form3,Student_form4
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 
 
 
 # Create your views here.
 @login_required(login_url="/accounts/login")
 def first_page(request):
+
     if request.method == 'GET':
-        form=forms.Stuform1()
+        try:
+            status=request.user.student_form1.First_name
+            if status!=None:
+                return redirect('student:Second_page') 
+        except ObjectDoesNotExist as e:
+            form=forms.Stuform1()
+
     else:
         form=forms.Stuform1(request.POST)
 
@@ -30,7 +38,15 @@ def first_page(request):
 @login_required(login_url="/accounts/login")
 def Second_page(request):
     if request.method == 'GET':
-        form=forms.Stuform2()
+        try:
+            status=request.user.student_form2.Mother_name
+            if status!=None:
+                if status=="Awaited":
+                    return redirect('student:Fourth_page') 
+                else:
+                    return redirect('student:Third_page') 
+        except ObjectDoesNotExist as e:
+            form=forms.Stuform2() 
     else:
         form=forms.Stuform2(request.POST)
 
@@ -38,7 +54,7 @@ def Second_page(request):
             obj = form.save(commit=False)
             obj.user=request.user
             obj.save()
-            status=request.user.student_form2.Twelfth_result
+            status=request.user.student_form2.Status_of_twefth_result
             if status=="Awaited":
                 return redirect('student:Fourth_page') 
                  
@@ -51,10 +67,14 @@ def Second_page(request):
     return render(request,'Second_page.html',context)
 
 
-@login_required(login_url="/accounts/login")
 def Third_page(request):
     if request.method == 'GET':
-        form=forms.Stuform3()
+        try:
+            status=request.user.student_form3.Subject1_marks
+            if status!=None:
+                return redirect('student:Fourth_page') 
+        except ObjectDoesNotExist as e:
+            form=forms.Stuform3()
     else:
         form=forms.Stuform3(request.POST)
 
@@ -73,7 +93,16 @@ def Third_page(request):
 @login_required(login_url="/accounts/login")
 def Fourth_page(request):
     if request.method == 'GET':
-        form=forms.Stuform4()
+        try:
+            status=request.user.student_form4.candidate_photo
+            if status!=None:
+                status_1=request.user.student_form2.Status_of_twefth_result
+                if status_1=="Awaited":
+                    return redirect('student:Student_full_info') 
+                else:
+                    return redirect('student:Alt_student_full_info') 
+        except ObjectDoesNotExist as e:
+            form=forms.Stuform4()
     else:
         form=forms.Stuform4(request.POST)
 
@@ -81,7 +110,7 @@ def Fourth_page(request):
             obj = form.save(commit=False)
             obj.user=request.user
             obj.save()
-            status=request.user.student_form2.Twelfth_result
+            status=request.user.student_form2.Status_of_twefth_result
             if status=="Awaited":
                 return redirect('student:Student_full_info') 
             else:
@@ -96,7 +125,7 @@ def Fourth_page(request):
 
 
 
-
+@login_required(login_url="/accounts/login")
 def Student_full_info(request):
 
     args = {'user': request.user}
@@ -104,7 +133,7 @@ def Student_full_info(request):
     if request.method == 'GET':
         HttpResponse("thank you")
 
-
+@login_required(login_url="/accounts/login")
 def Alt_student_full_info(request):
     args = {'user': request.user}
     return render(request, 'Alt_student_full_info.html',args) 
@@ -135,7 +164,7 @@ def Contact(request):
 
 def edit(request, user):
     user=request.user
-    rest=get_object_or_404(models.Student_form1 ,user)
+    rest=get_object_or_404(models.student_form1 ,user)
     if request.method == 'GET':
         form=rest
     else:

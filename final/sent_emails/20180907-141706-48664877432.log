@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: abhishekkataria780@gmail.com
+Date: Fri, 07 Sep 2018 08:47:06 -0000
+Message-ID: <153631002675.7972.16929185598877302867@FamilyPC>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset-password/confirm/MQ-4ze-f87d1973354dcdecc841/
+
+Your username, in case you've forgotten: abhi
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

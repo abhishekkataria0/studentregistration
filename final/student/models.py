@@ -51,11 +51,11 @@ class Student_form2(models.Model):
 
 
 class Student_form3(models.Model):
-    marks_in_twelfth= models.CharField(max_length = 5,blank=True)
-    Subject1_marks= models.CharField(max_length = 5,blank=True)
-    Subject2_marks= models.CharField(max_length = 5,blank=True)
-    Subject3_marks= models.CharField(max_length = 5,blank=True)
-    Subject4_marks= models.CharField(max_length = 5,blank=True)
+    marks_in_twelfth= models.CharField(max_length = 5)
+    Subject1_marks= models.CharField(max_length = 5,blank=True,null=True)
+    Subject2_marks= models.CharField(max_length = 5,blank=True,null=True)
+    Subject3_marks= models.CharField(max_length = 5,blank=True,null=True)
+    Subject4_marks= models.CharField(max_length = 5,blank=True,null=True)
     twelfth_marksheet= models.FileField(null=True,blank=True,upload_to=user_directory_path)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
 
@@ -65,10 +65,11 @@ class Student_form3(models.Model):
 
 
 class Student_form4(models.Model):
-    candidate_photo= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
+    candidate_photo= models.ImageField(upload_to=user_directory_path)
     thumb_impression= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
     candidate_signature= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
+    
 
 
 

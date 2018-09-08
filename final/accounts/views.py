@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,Passwo
 from django.contrib.auth import login,logout
 from django.http import HttpResponse
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from accounts.forms import RegistrationForm
 # Create your views here.
 def index(request):
     if request.method=='GET':   
@@ -10,17 +12,16 @@ def index(request):
         return render(request,'accounts/index.html',context)
 
 
-
 def signup_view(request):
     if request.method =='POST':
-        form=UserCreationForm(request.POST)
+        form=RegistrationForm(request.POST)
         if form.is_valid():
             user=form.save()
             #login
             login(request,user)
             return redirect('student:first_page')
     else:
-        form=UserCreationForm()
+        form=RegistrationForm()
     return render(request,'accounts/signup.html',{'form':form})
 
 def login_view(request):
@@ -34,7 +35,7 @@ def login_view(request):
         form =AuthenticationForm()
     return render(request,'accounts/login.html',{'form':form})
 
-
+@login_required(login_url="/accounts/login")
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)

@@ -1,9 +1,9 @@
 {% extends 'base_layout.html' %}
 {%block content%}
-<h1>signup<h1>
-    <form class="form-group" action="/accounts/signup/" method="post">
+<h1>signup</h1>
+    <form class="container" action="/accounts/signup/" method="post">
         {% csrf_token %}
-        {{form}}
+        {{form.as_p}}
         <button class="btn btn-default button12" type="submit">SIGNUP</button>
     </form>
 {% endblock %}
