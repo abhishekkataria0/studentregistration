@@ -5,13 +5,33 @@
    
 <body>
  
-<form class="form-group" action="" method="POST">
+<form class="container" action="" method="POST" enctype="multipart/form-data">
   {%csrf_token%}
   {{ stu_form2.as_p }}
-  
-  <button class="btn btn-default button12" type="submit">NEXT</button>
-</form>
+  <input type="checkbox" name="terms" id="terms">
+  i have read the <a href="{%url 'student:tnc'%}">terms and conditions</a> and i understand that this information is final and cannot be changed.
+  <input type="submit"  class="inputButton btn btn-default button12" id="send" value="NEXT" data-toggle="tooltip" data-placement="bottom" title="Check the checkbox">
 
+
+
+
+<script type="text/javascript">
+var button=$('#send');
+ button.attr('disabled','disabled');
+ $('#terms').change(function(e){
+   if (this.checked){
+     button.removeAttr('disabled');
+   }
+    else{
+      button.attr('disabled','disabled');
+    }
+   
+
+ });
+</script>
+  
+</form>
+<br><br><br><br>
 </body>
 
 

@@ -23,6 +23,31 @@
 
     </div>
 
+    <input type="checkbox" name="terms" id="terms">
+    I have read the <a href="{%url 'student:tnc'%}" target="_blank">
+        terms and conditions</a> and i understand that this information is final and cannot be changed.
+    <br><br><br>
+    <input type="submit"  class="inputButton btn btn-default button12" id="send" value="submit" data-toggle="tooltip" data-placement="bottom" title="Check the checkbox">
+    <br><br><br><br>
+  
+  
+  
+  
+  <script type="text/javascript">
+  var button=$('#send');
+   button.attr('disabled','disabled');
+   $('#terms').change(function(e){
+     if (this.checked){
+       button.removeAttr('disabled');
+     }
+      else{
+        button.attr('disabled','disabled');
+      }
+     
+  
+   });
+  </script>
+  <br><br><br><br>
 </body>
    
 

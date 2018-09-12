@@ -1,7 +1,7 @@
 {% extends 'base_layout.html' %}
 {%block content%}
     <h1>LOGIN</h1>
-        <form class="form-group" action="{%url 'accounts:login' %}" method="post">
+        <form class="container" action="{%url 'accounts:login' %}" method="post">
             {% csrf_token %}
             {{form.as_p}}
 
@@ -11,7 +11,8 @@
             </small>
 
         </form>
-        <form action="/accounts/signup/" method="GET">
+        <br>
+        <form class="container" action="/accounts/signup/" method="GET">
             {% csrf_token %}
 
             <button class="btn btn-default button12" type="submit">SIGNUP</button>

@@ -131,9 +131,16 @@ STATIC_ROOT = 'staticfile/'
 # has all the static files
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 MEDIA_URL = '/media/'
 
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+"""EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+from .email_info import *
+
+EMAIL_USE_TLS =EMAIL_USE_TLS
+EMAIL_HOST=EMAIL_HOST
+EMAIL_HOST_USER=EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD
+EMAIL_PORT=EMAIL_PORT"""

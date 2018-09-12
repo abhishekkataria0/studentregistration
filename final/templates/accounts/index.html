@@ -10,14 +10,14 @@
         <h1>WELCOME TO STUDENT REGISTRATION FORM</h1>
     </div>
 
-    <form class="form-group" action="{%url 'accounts:login'%}" method="GET">
+    <form class="container" action="{%url 'accounts:login'%}" method="GET">
         {% csrf_token %}
         <div class="wrapper">
             <button class="btn btn-default button12 button10" type="submit">LOGIN</button>
         </div>
     </form>
 
-    <form class="form-group" action="{%url 'accounts:signup'%}" method="GET">
+    <form class="container" action="{%url 'accounts:signup'%}" method="GET">
         {% csrf_token %}
         <div class="wrapper">
             <button class="btn btn-default button12 button11" type="submit">SIGNUP</button>

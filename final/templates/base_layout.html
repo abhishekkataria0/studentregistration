@@ -9,9 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/my.css' %}">
+
+
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/my.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 </head>
 <body>
+    
     <font size="+4"> 
         <font color="black"> 
             <marquee bgcolor= #7700ff direction="LEFT" onmouseover="this.stop()" onmouseout="this.start()">  
@@ -22,6 +28,19 @@
     <div class="watermark"></div>
 
     <nav class="navbar navbar-expand-lg navbar-light rounded div1">
+
+
+            <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form class="logout-link" action="{%url 'student:home'%}" method="get">
+                                {% csrf_token %}
+                                <button class="btn btn-default button12" type="submit">HOME </button>
+                            </form>
+                        </li>  
+              
+                    </ul>
+            </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                   <li>
@@ -36,9 +55,9 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <form class="logout-link" action="{%url 'student:first_page'%}" method="get">
+                    <form class="logout-link" action="{%url 'student:notice'%}" method="get">
                         {% csrf_token %}
-                        <button class="btn btn-default button12" type="submit"> Edit Informations</button>
+                        <button class="btn btn-default button12" type="submit">NOTICE</button>
                     </form>
                 </li>  
       
@@ -47,7 +66,7 @@
         <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <form class="logout-link" action="{%url 'student:first_page'%}" method="post">
+                        <form class="logout-link" action="{%url 'student:first_page'%}" method="GET">
                             {% csrf_token %}
                             <button class="btn btn-default button12" type="submit"> Fill Forms</button>
                         </form>
@@ -77,15 +96,18 @@
           
                 </ul>
         </div>
+
     </nav>
         {%block content%}
         {% endblock %}
 
+
+
 </body>
-<div id="footer" align="center">
+<div id="footer"  align="center">
                     
     <p >ABHISHEK KATARIA@Django 2018(C) <br>
-        <a href="{% url 'student:Prob_form'%}">Report A Problem &nbsp</a>
+        <a href="{% url 'student:Prob_form'%}">Report A Problem &nbsp</a><br>
         <a href="{% url 'student:Contact'%}">Contact Details</a>
     </p>
     

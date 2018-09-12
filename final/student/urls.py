@@ -13,5 +13,8 @@ urlpatterns=[
     path('Alt_student_full_info/',views.Alt_student_full_info,name="Alt_student_full_info"),
     path('Prob_form/',views.Prob_form,name="Prob_form"),
     path('Contact/',views.Contact,name="Contact"),
+    path('home/',views.home,name="home"),
+    path('notice/',views.notice,name="notice"),
+    path('tnc/',views.tnc,name="tnc"),
 
 ]

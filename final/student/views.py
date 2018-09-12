@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from django.conf import settings
 from django.http import HttpResponse
 from . import forms
 from django.shortcuts import render,get_object_or_404
@@ -23,7 +23,7 @@ def first_page(request):
             form=forms.Stuform1()
 
     else:
-        form=forms.Stuform1(request.POST)
+        form=forms.Stuform1(request.POST,request.FILES)
 
         if form.is_valid():
             obj = form.save(commit=False)
@@ -66,7 +66,7 @@ def Second_page(request):
     }
     return render(request,'Second_page.html',context)
 
-
+@login_required(login_url="/accounts/login")
 def Third_page(request):
     if request.method == 'GET':
         try:
@@ -110,8 +110,8 @@ def Fourth_page(request):
             obj = form.save(commit=False)
             obj.user=request.user
             obj.save()
-            status=request.user.student_form2.Status_of_twefth_result
-            if status=="Awaited":
+            status_1=request.user.student_form2.Status_of_twefth_result
+            if status_1=="Awaited":
                 return redirect('student:Student_full_info') 
             else:
                 return redirect('student:Alt_student_full_info') 
@@ -179,6 +179,24 @@ def edit(request, user):
         'rest':form
     }
     return render(request,'first_page.html',context)
+
+
+
+def home(request):
+    if request.method =="GET":
+        args={'user':request.user}
+        return render(request, 'home.html',args) 
+
+def notice(request):
+    if request.method =="GET":
+        args={'user':request.user}
+        return render(request, 'notice.html',args) 
+
+    
+def tnc(request):
+    if request.method=='GET':   
+        context ={}
+        return render(request,'tnc.html',context)
 
 
 

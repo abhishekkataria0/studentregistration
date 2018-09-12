@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MaxValueValidator
+from datetime import datetime
 
 # Create your models here.
 
@@ -48,6 +49,8 @@ class Student_form2(models.Model):
 
     Status_of_twefth_result = models.CharField(max_length = 7, choices =Status_of_twefth_result)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.user.username
 
 
 class Student_form3(models.Model):
@@ -59,16 +62,21 @@ class Student_form3(models.Model):
     twelfth_marksheet= models.FileField(null=True,blank=True,upload_to=user_directory_path)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.username
+
 
 
 
 
 
 class Student_form4(models.Model):
-    candidate_photo= models.ImageField(upload_to=user_directory_path)
+    candidate_photo= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
     thumb_impression= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
     candidate_signature= models.ImageField(null=True,blank=True,upload_to=user_directory_path)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.user.username
     
 
 
@@ -82,3 +90,5 @@ class Prob_form(models.Model):
     Subject= models.CharField(max_length = 200,blank=True)
     Description= models.CharField(max_length = 500,blank=True)
     Error_number= models.CharField(max_length = 5,blank=True)
+    def __str__(self):
+            return self.Name

@@ -1,0 +1,36 @@
+{% extends 'base_layout.html' %}
+
+
+{%block content%}
+<title>Profile</title>
+<style>
+    div.fixed {
+        position: fixed;
+        bottom: 40;
+        right: 0;
+        width: 200px;
+        height: 300px;
+        border: 3px solid #73AD21;
+    }
+    </style>
+
+<div class="container">
+    <h1>Profile</h1>
+    <p>Username: {{ user }}</p>
+    <p>First name: {{ user.first_name }}</p>
+    <p>Last name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+</div>
+<div class="fixed">
+    <marquee  behavior="scroll" direction="up" scrollamount="2" onmouseover="this.stop()" onmouseout="this.start()"> 
+        <ul>
+            <li><a href="">NOTICE1</a></li>
+            <li><a href="">NOTICE2</a></li>
+            <li><a href="">NOTICE3</a></li>
+            <li><a href="">NOTICE4</a></li>
+        </ul>
+    </marquee> 
+</div>
+<br><br><br><br>
+
+{% endblock %}

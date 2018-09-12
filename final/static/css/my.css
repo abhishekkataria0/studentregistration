@@ -30,7 +30,7 @@ body{
 .watermark{
   background:url("VIPS.jpg") ;
   background-repeat: no-repeat;
-  opacity: 0.08; 
+  opacity: 0.09; 
     position: absolute;
     right: 40;
     top: 20%;
@@ -56,4 +56,16 @@ body{
 
 .mgred {
     background-color: blue;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
